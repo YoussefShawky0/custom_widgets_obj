@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'Item_Model.dart';
 
 class Design_Model extends StatelessWidget {
@@ -9,24 +10,26 @@ class Design_Model extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Expanded(
+              child: Image.asset(
                 item.image,
-                width: 100,
+                width: 200,
               ),
-              Text(
-                item.name,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ],
+            ),
+            Text(
+              item.name,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  wordSpacing: .5,
+                  letterSpacing: 0.5),
+            ),
+          ],
+        ),
       ),
     );
   }

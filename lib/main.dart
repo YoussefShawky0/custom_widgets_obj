@@ -1,6 +1,6 @@
 import 'package:custom_widgets_obj/Design_Card.dart';
+import 'package:custom_widgets_obj/Item_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MainApp());
@@ -38,10 +38,15 @@ class MainApp extends StatelessWidget {
             ),
           ],
         ),
-        body:GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder)
-
+        body: GridView.builder(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemBuilder: (context, index) {
+            return Design_Model(item: item[index]);
+          },
+          itemCount: item.length,
+        ),
       ),
     );
   }
 }
-
